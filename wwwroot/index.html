@@ -4,25 +4,28 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- ✅ Set the app's title -->
     <title>EventEase</title>
-
-    <!-- ✅ Define the base URL for routing -->
     <base href="/" />
-
-    <!-- ✅ Link to app styles (if you use CSS in wwwroot/css/app.css) -->
-    <link href="css/app.css" rel="stylesheet" />
-
-    <!-- ✅ Optional: Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="EventEase.styles.css" rel="stylesheet" />
 </head>
 
 <body>
-    <!-- ✅ Main app root; this is where Blazor mounts the app -->
-    <div id="app">Loading...</div>
+    <div id="app">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%" />
+            <circle r="40%" cx="50%" cy="50%" />
+        </svg>
+        <div class="loading-progress-text"></div>
+    </div>
 
-    <!-- ✅ Blazor WebAssembly runtime -->
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>
 
