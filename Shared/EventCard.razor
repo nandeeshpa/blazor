@@ -1,0 +1,13 @@
+<div class="event-card">
+    <h2>@Title</h2>
+    <p><strong>Date:</strong> @Date.ToShortDateString()</p>
+    <p><strong>Location:</strong> @Location</p>
+    <p>@Description</p>
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; }
+    [Parameter] public DateTime Date { get; set; }
+    [Parameter] public string Location { get; set; }
+    [Parameter] public string Description { get; set; }
+}

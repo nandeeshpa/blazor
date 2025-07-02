@@ -1,0 +1,13 @@
+@page "/attendance"
+@inject EventEase.Services.UserState userState
+
+<h3>Attendance Tracker</h3>
+
+@if (userState.IsRegistered)
+{
+    <p>@userState.UserName is attending ✅</p>
+}
+else
+{
+    <p>No registration found. Please register first.</p>
+}

@@ -1,0 +1,54 @@
+@page "/register"
+@using System.ComponentModel.DataAnnotations
+@inject EventEase.Services.UserState userState
+
+<EditForm Model="@form" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label>Name:</label>
+        <InputText @bind-Value="form.Name" />
+    </div>
+
+    <div>
+        <label>Email:</label>
+        <InputText @bind-Value="form.Email" />
+    </div>
+
+    <div>
+        <label>Age:</label>
+        <InputNumber @bind-Value="form.Age" />
+    </div>
+
+    <button type="submit">Register</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <p style="color: green">@successMessage</p>
+}
+
+@code {
+    private RegistrationForm form = new();
+    private string successMessage;
+
+    public class RegistrationForm
+    {
+        [Required]
+        public string Name { get; set; }
+
+        [Required, EmailAddress]
+        public string Email { get; set; }
+
+        [Range(18, 99)]
+        public int Age { get; set; }
+    }
+
+    private void HandleSubmit()
+    {
+        successMessage = $"Thanks for registering, {form.Name}!";
+        userState.UserName = form.Name;
+        userState.IsRegistered = true;
+    }
+}
